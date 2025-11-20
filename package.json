@@ -7,7 +7,7 @@
     "dev:web": "pnpm --filter client dev",
     "build:deps": "pnpm --filter stoat.js build && pnpm --filter solid-livekit-components build && pnpm --filter @lingui-solid/babel-plugin-lingui-macro build && pnpm --filter @lingui-solid/babel-plugin-extract-messages build && pnpm --filter client lingui:compile",
     "build:web": "pnpm --filter client build",
-    "build:prod": "pnpm --filter client build:prod",
+    "build:hosted": "pnpm --filter client build:hosted",
     "start:web": "cd packages/client && pnpm run serve",
     "lint": "eslint --fix --ext .ts,.tsx packages/client",
     "fmt": "prettier --write 'packages/client/**/*.{ts,tsx,json}'",
