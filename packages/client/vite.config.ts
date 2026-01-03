@@ -25,6 +25,22 @@ export default defineConfig({
     solidSvg({
       defaultAsComponent: false,
     }),
+    {
+      name: 'ssi-placeholder',
+      transformIndexHtml(html) {
+        return html.replace(
+          '</head>',
+          `<script>
+            // These will be replaced by nginx SSI at request time
+            window.env = {
+              VITE_API_URL: "<!--#echo var=\"ssitesturl\" -->",
+              VITE_WS_URL: "<!--#echo var=\"ssivitewsurl\" -->",
+              VITE_HCAPTCHA_SITEKEY: "<!--#echo var=\"ssivitehcaptchasitekey\" -->",
+            };
+          </script></head>`
+        );
+      }
+    },
     VitePWA({
       srcDir: "src",
       registerType: "autoUpdate",

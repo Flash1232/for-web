@@ -36,4 +36,5 @@ CMD [ "pnpm", "dev:web" ]
 
 FROM docker.io/nginxinc/nginx-unprivileged:${NGINX_VERSION}-alpine${ALPINE_VERSION}-slim AS prod
 COPY --from=build /usr/src/app/packages/client/dist /usr/share/nginx/html
-COPY conf/nginx.conf /etc/nginx/conf.d/default.conf
+#COPY conf/nginx.conf /etc/nginx/conf.d/default.conf
+COPY conf/nginx.conf.template /etc/nginx/templates/default.conf.template
