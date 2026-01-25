@@ -1,6 +1,8 @@
 const DEFAULT_API_URL =
-  (import.meta.env.DEV ? import.meta.env.VITE_DEV_API_URL : undefined) ??
+/**  (import.meta.env.DEV ? import.meta.env.VITE_DEV_API_URL : undefined) ??
   (import.meta.env.VITE_API_URL as string) ??
+  "https://stoat.chat/api"; */
+  (window.env.VITE_API_URL as string) ??
   "https://stoat.chat/api";
 
 export default {
@@ -28,26 +30,26 @@ export default {
    */
   DEFAULT_WS_URL:
     (import.meta.env.DEV ? import.meta.env.VITE_DEV_WS_URL : undefined) ??
-    (import.meta.env.VITE_WS_URL as string) ??
+    (window.env.VITE_WS_URL as string) ??
     "wss://stoat.chat/events",
   /**
    * What media server to connect to by default.
    */
   DEFAULT_MEDIA_URL:
     (import.meta.env.DEV ? import.meta.env.VITE_DEV_MEDIA_URL : undefined) ??
-    (import.meta.env.VITE_MEDIA_URL as string) ??
+    (window.env.VITE_MEDIA_URL as string) ??
     "https://cdn.stoatusercontent.com",
   /**
    * What proxy server to connect to by default.
    */
   DEFAULT_PROXY_URL:
     (import.meta.env.DEV ? import.meta.env.VITE_DEV_PROXY_URL : undefined) ??
-    (import.meta.env.VITE_PROXY_URL as string) ??
+    (window.env.VITE_PROXY_URL as string) ??
     "https://proxy.stoatusercontent.com",
   /**
    * hCaptcha site key to use if enabled
    */
-  HCAPTCHA_SITEKEY: import.meta.env.VITE_HCAPTCHA_SITEKEY as string,
+  HCAPTCHA_SITEKEY: window.env.VITE_HCAPTCHA_SITEKEY as string,
   /**
    * Maximum number of replies a message can have
    */
